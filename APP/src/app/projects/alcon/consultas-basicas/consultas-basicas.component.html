@@ -1,0 +1,40 @@
+<mat-toolbar class="widget-header mat-elevation-z1">
+    <mat-icon>table_chart</mat-icon>
+    <h1 class="widget-title">Consultas básicas</h1>
+    <span style="flex: 1 1 auto"></span>
+    <button mat-icon-button matTooltip="Close" (click)="onCloseClick()">
+      <mat-icon class="material-icons-round">close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-card>
+  
+
+
+<form [formGroup]="dateRangeForm">
+<mat-form-field >
+    <mat-label for="fccreaciondatesFilter">{{'fccreacion-dates' | translate}}</mat-label>
+    <mat-date-range-input id="fccreaciondatesFilter" [rangePicker]="picker1">
+        <mat-label for="fccreaciondatesFromFilter">{{'from-date' | translate}}</mat-label>
+        <input id="fccreaciondatesFromFilter" matStartDate placeholder="{{'from-date' | translate}}" required formControlName="fromDateFccreacion" #dateRangeStartFccreacion>
+        <mat-label for="fccreaciondatesToFilter">{{'to-date' | translate}}</mat-label>
+        <input id="fccreaciondatesToFilter" matEndDate placeholder="{{'to-date' | translate}}" required formControlName="toDateFccreacion" #dateRangeEndFccreacion>
+    </mat-date-range-input>
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker1></mat-date-range-picker>
+
+    <!-- Invalid Date Messages -->
+    <mat-error *ngIf="f['fromDateFccreacion'].hasError('matStartDateInvalid')">{{'invalid-initial-date' | translate}}</mat-error>
+    <mat-error *ngIf="f['toDateFccreacion'].hasError('matEndDateInvalid')">{{'invalid-final-date' | translate}}</mat-error>
+
+    <!-- Required Date Messages -->
+    <mat-error *ngIf="f['fromDateFccreacion'].errors?.['required']">{{'required-initial-date' | translate}}</mat-error>
+    <mat-error *ngIf="f['toDateFccreacion'].errors?.['required']">{{'required-final-date' | translate}}</mat-error>
+</mat-form-field>
+
+</form>
+<div class="actions">
+    <button mat-raised-button type="button" color="warn" (click)="onClean()">Limpiar</button>
+    <button mat-raised-button type="button" color="primary" (click)="onSearch()">Consulta</button>
+  </div>
+</mat-card>

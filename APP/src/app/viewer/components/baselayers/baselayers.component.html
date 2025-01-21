@@ -1,0 +1,30 @@
+<div class="container">
+    <h2 class="title">Capas base</h2>
+<button class="bs-button mat-elevation-z3" [ngClass]="{ active: bsmSelected === 'orto2020' }" (click)="baselayerChange('orto2020')">
+    <img class="bs-img" src="assets/images/topografico.png" />
+    <div class="bs-label">Sentinel 2020</div>
+  </button>
+  <button class="bs-button mat-elevation-z3" [ngClass]="{ active: bsmSelected === 'orto2024' }" (click)="baselayerChange('orto2024')">
+    <img class="bs-img" src="assets/images/topografico.png" />
+    <div class="bs-label">Sentinel 2024</div>
+  </button>
+  <button class="bs-button mat-elevation-z3" [ngClass]="{ active: bsmSelected === 'landuse' }" (click)="baselayerChange('landuse')">
+    <img class="bs-img" src="assets/images/gris.png" />
+    <div class="bs-label">Land Use 2020</div>
+  </button>
+ 
+  <button class="bs-button mat-elevation-z3" [ngClass]="{ active: bsmSelected === 'esriImagery' }" (click)="baselayerChange('esriImagery')">
+    <img class="bs-img" src="assets/images/ortoreciente.png" />
+    <div class="bs-label">esriImagery</div>
+  </button>
+ 
+
+
+
+  
+  <!--
+  <button class="bs-button mat-elevation-z3" [ngClass]="{ active: bsmSelected === 'arabaOrtofoto2021' }" (click)="baselayerChange('arabaOrtofoto2021')">
+    <img class="bs-img" src="assets/images/ortoreciente.png" />
+    <div class="bs-label">Ortofoto 2021</div>
+  </button>-->
+</div>

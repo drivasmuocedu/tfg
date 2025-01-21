@@ -1,0 +1,12 @@
+{
+    "/geoserver/rest": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/geoserver/": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

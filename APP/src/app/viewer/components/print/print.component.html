@@ -1,0 +1,36 @@
+<div class="container">
+    <h2 class="title">Impresión</h2>
+<form [formGroup]="printForm">
+    <mat-form-field appearance="outline">
+        <mat-label for="size">Tamaño de página</mat-label>
+        <mat-select id="size" formControlName="size">
+            <mat-option value="a0">A0 (slow)</mat-option>
+            <mat-option value="a1">A1</mat-option>
+            <mat-option value="a2">A2</mat-option>
+            <mat-option value="a3">A3</mat-option>
+            <mat-option value="a4" selected>A4</mat-option>
+            <mat-option value="a5">A5 (fast)</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="size">Resolución</mat-label>
+        <mat-select id="size" formControlName="resolution">
+            <mat-option value="72">72 dpi (fast)</mat-option>
+            <mat-option value="150">150 dpi</mat-option>
+            <mat-option value="200" selected>200 dpi</mat-option>
+            <mat-option value="300">300 dpi (slow)</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label for="size">Escala</mat-label>
+        <mat-select id="size" formControlName="scale">
+            <mat-option value="500">1:500000</mat-option>
+            <mat-option value="250" selected>1:250000</mat-option>
+            <mat-option value="100">1:100000</mat-option>
+            <mat-option value="50">1:50000</mat-option>
+            <mat-option value="25">1:25000</mat-option>
+            <mat-option value="10">1:10000</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </form>
+</div>

@@ -1,0 +1,220 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  
+    ::ng-deep {
+      .layer-list-item mat-expansion-panel .mat-expansion-panel-body {
+        padding-left: 0;
+        padding-right: 0;
+      }
+  
+      .esri-legend__service {
+        padding: 0;
+  
+        .esri-widget__heading.esri-legend__service-label {
+          display: none;
+        }
+      }
+    }
+  
+    .scrollable-content {
+      flex: 1;
+      overflow: auto;
+      padding: 8px 0;
+    }
+  }
+  
+  mat-tree {
+    background-color: transparent;
+    opacity: 1;
+    transition: opacity 160ms ease-in;
+  
+    &.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+  
+    mat-tree-node,
+    mat-nested-tree-node {
+      display: block;
+      min-height: 32px;
+      padding: 4px 0;
+
+      .tree-node-header  {
+        display: flex;
+        padding-right: 4px;
+        align-items: center;
+      }
+
+      mat-expansion-panel {
+        box-shadow: none;
+      }
+  
+      &.inactive .tree-node-label {
+        opacity: 0.5;
+      }
+  
+      .tree-node-header {
+        display: flex;
+        padding-right: 4px;
+  
+        &:hover .button-visibility,
+        &.invisible .button-visibility {
+          opacity: 1;
+          pointer-events: all;
+        }
+  
+        .mat-button-xsmall {
+          margin: 4px 0;
+        }
+  
+        .tree-node-label {
+          align-items: center;
+          display: flex;
+          flex: 1;
+          overflow: hidden;
+          padding-left: 4px;
+  
+          span {
+            line-height: 24px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+  
+        .cdk-drag-handle {
+          cursor: move;
+          margin: 4px 0;
+        }
+  
+        .button-visibility {
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.16s ease-in;
+        }
+      }
+    }
+  
+    
+    
+    mat-nested-tree-node {
+      mat-card {
+        overflow: hidden;
+        padding: 0px;
+      }
+  
+      mat-expansion-panel {
+        box-shadow: none;
+  
+        mat-expansion-panel-header {
+          cursor: default;
+          font-size: 14px;
+          height: auto;
+          padding: 8px 0;
+  
+          &:hover {
+            background-color: white;
+          }
+  
+          mat-panel-title {
+            display: block;
+            margin: 0;
+            overflow-x: hidden;
+            word-wrap: break-word;
+          }
+        }
+      }
+  
+      div[role="group"] {
+        overflow: hidden;
+        padding-left: 24px;
+      }
+    }
+  
+    .layer-list-root {
+      margin: 0 8px 8px;
+      padding: 0;
+    }
+  }
+  
+  .mat-slider-opacity {
+    width: 100%;
+  }
+  
+  mat-action-list {
+    background-color: #f3f3f3;
+  
+    .mat-list-item {
+      height: 32px !important;
+    }
+  }
+  
+  app-layer-properties {
+    display: block;
+    overflow: auto;
+    padding: 8px 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 64px;
+    bottom: 0;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    background: #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    min-height: 36px;
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .cdk-drop-list-dragging mat-tree-node:not(.cdk-drag-placeholder),
+  .cdk-drop-list-dragging mat-nested-tree-node:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .legend-container {
+    padding: 0px 20px 10px;
+  }
+
+  .widget-header {
+    background-color: white;
+    margin-bottom: 5px;
+  }
+
+  .widget-title {
+    padding: 0px 5px;
+  }
+
+  .layers-tree {
+    overflow-y: auto;
+    max-height: calc(100vh - 125px);
+  }
+
+  .layer-title-container {
+    max-width: 135px;
+    overflow: hidden;
+    text-overflow: ellipsis ellipsis;
+    text-overflow: ellipsis;
+    padding: 0px 0px 0px 5px;
+  }
+  
+  .layer-title-text {
+    white-space: nowrap;
+  }
+
+  .layer-list-title{
+    padding: 0 15px;
+  }

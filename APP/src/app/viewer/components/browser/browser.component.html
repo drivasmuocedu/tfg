@@ -1,0 +1,25 @@
+
+<mat-toolbar class="widget-header mat-elevation-z1">
+  <mat-icon>search</mat-icon>
+  <h1 class="widget-title">Navegador</h1>
+  <span style="flex: 1 1 auto"></span>
+  <button mat-icon-button matTooltip="Close" (click)="onCloseClick()">
+    <mat-icon class="material-icons-round">close</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-card>
+<!--<mat-slide-toggle aria-pressed="true" [checked]="filterActivechecked"  (change)="setMessageFilterActive($event)">{{messageFilterActive}}</mat-slide-toggle>-->
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <mat-list *ngIf="layers && filterActivechecked">
+    <mat-list-item *ngFor="let layer of browserLayers">
+      <div matListItemTitle class="layer-title-container"><span class="layer-title-text">{{layer.title | layerTitle}} </span></div>
+      
+      <div matListItemIcon>
+        <button *ngIf="!layer.loaded && !layer.loading" mat-icon-button (click)="addLayer(layer)"><mat-icon>add</mat-icon></button>
+        <button *ngIf="layer.loaded && !layer.loading" mat-icon-button (click)="removeLayer(layer)"><mat-icon>remove</mat-icon></button>
+        <mat-spinner *ngIf="layer.loading && layer.loaded" class="spinner" color="primary" diameter="26"></mat-spinner>
+      </div>
+   
+    </mat-list-item>
+  </mat-list>
+</mat-card>

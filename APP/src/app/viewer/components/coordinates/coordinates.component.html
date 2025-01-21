@@ -1,0 +1,87 @@
+<div class="container">
+    <h2 class="title">Coordenadas</h2>
+<div *ngIf="!HDMS && !UTM">
+    <div class="container-coord">
+    <form [formGroup]="coordinatesForm">
+      <mat-form-field class="coordinates">
+        <mat-label for="lon">Longitud</mat-label>
+        <input id="lon" type="number" formControlName="lon"  matInput placeholder="Longitud">
+      </mat-form-field>
+      <mat-form-field class="search-item">
+        <mat-label for="lat">Latitud</mat-label>
+        <input id="lat" type="number" formControlName="lat"  matInput placeholder="Latitud">
+      </mat-form-field>
+    </form>
+    </div>
+    <div class="buttons-container">
+      <div class="coordinate-options">
+        <button mat-flat-button (click)="changeToHDMS()">HDMS</button>
+        <button mat-flat-button (click)="changeToUTM()">UTM</button>
+      </div>
+        <button mat-flat-button color="primary" (click)="goToCoordinate()">Ir</button>
+    </div>
+  </div>
+    <div *ngIf="HDMS && !UTM">
+        <div class="container-coord">
+    <form [formGroup]="coordinatesHDMSForm">
+      <div class="X">
+      <mat-form-field class="coordinateHDMS">
+        <mat-label for="lond">Lon º</mat-label>
+        <input id="lond" type="number" formControlName="lond"  matInput placeholder="º">
+      </mat-form-field>
+      <mat-form-field class="coordinateHDMS">
+        <mat-label for="lonm">Lon '</mat-label>
+        <input id="lonm" type="number" formControlName="lonm"  matInput placeholder="'">
+      </mat-form-field>
+      <mat-form-field class="coordinateHDMS">
+        <mat-label for="lons">Lon ''</mat-label>
+        <input id="lons" type="number" formControlName="lons"  matInput placeholder="''">
+      </mat-form-field>
+    </div>
+    <div class="Y">
+      <mat-form-field class="coordinateHDMS">
+        <mat-label for="latd">Lat º</mat-label>
+        <input id="latd" type="number" formControlName="latd"  matInput placeholder="º">
+      </mat-form-field>
+      <mat-form-field class="coordinateHDMS">
+        <mat-label for="latm">Lat '</mat-label>
+        <input id="latm" type="number" formControlName="latm"  matInput placeholder="'">
+      </mat-form-field>
+      <mat-form-field class="coordinateHDMS">
+        <mat-label for="lats">Lat ''</mat-label>
+        <input id="lats" type="number" formControlName="lats"  matInput placeholder="''">
+      </mat-form-field>
+    </div>
+    </form>
+    </div>
+    <div class="buttons-container">
+      <div class="coordinate-options">
+        <button mat-flat-button (click)="changeToGeographic()">Geográficas</button>
+        <button mat-flat-button (click)="changeToUTM()">UTM</button>
+      </div>
+        <button mat-flat-button color="primary" (click)="goToCoordinate()">Ir</button>
+    </div>
+  </div>
+  <div *ngIf="UTM">
+    <div class="container-coord">
+    <form [formGroup]="UTMForm">
+      <mat-form-field class="coordinates">
+        <mat-label for="lon">UTM X</mat-label>
+        <input id="lon" type="number" formControlName="lon"  matInput placeholder="UTM X">
+      </mat-form-field>
+      <mat-form-field class="search-item">
+        <mat-label for="lat">UTM Y</mat-label>
+        <input id="lat" type="number" formControlName="lat"  matInput placeholder="UTM Y">
+      </mat-form-field>
+    </form>
+    <p class="epsg-font">* EPSG:25830</p>
+    </div>
+    <div class="buttons-container">
+      <div class="coordinate-options">
+        <button mat-flat-button (click)="changeToHDMS()">HDMS</button>
+        <button mat-flat-button (click)="changeToGeographic()">Geográficas</button>
+      </div>
+        <button mat-flat-button color="primary" (click)="goToCoordinate()">Ir</button>
+    </div>
+  </div>
+</div>

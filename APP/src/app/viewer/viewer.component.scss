@@ -1,0 +1,423 @@
+:host {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidenav-start,
+  .sidenav-end {
+    min-width: 48px;
+  
+    .mat-list-item:hover {
+      mat-icon,
+      h4 {
+        opacity: 1;
+      }
+    }
+  
+    mat-list-item.active {
+      background-color: rgba(0, 0, 0, 0.24);
+  
+      mat-icon,
+      h4 {
+        opacity: 1;
+      }
+    }
+  
+    mat-list-item.mat-list-item-disabled {
+      display: none;
+    }
+  }
+  
+  .sidenav-start {
+    background-color: #284c94;
+    padding-top: 64px;
+    position: relative;
+    z-index: 9;
+  
+    .toolbar-logo {
+      cursor: pointer;
+    }
+  
+    .toolbar-logo-small {
+      align-items: center;
+      display: flex;
+      height: 64px;
+      justify-content: center;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      width: 100%;
+  
+      img {
+        width: 32px;
+      }
+  
+      img.expanded {
+        height: 56px;
+        width: auto;
+      }
+    }
+  
+    mat-toolbar {
+     /* background: url("../../assets/images/main1.png") no-repeat center;*/
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      width: calc(100% + 320px);
+      z-index: 9;
+  
+      .mat-toolbar-title {
+        background: linear-gradient(270deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.32) 64%, transparent);
+        color: white;
+        height: 64px;
+        line-height: 64px;
+        padding: 0 16px 0 40px;
+        position: absolute;
+        right: 0;
+        text-shadow: 0 0 1px black;
+      }
+    }
+  
+    mat-nav-list {
+      padding-top: 0;
+  
+      .list-item-version {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 80ms ease-in;
+        width: 128px;
+  
+        h4 {
+          text-align: center;
+        }
+      }
+  
+      .list-item-version.visible {
+        opacity: 1;
+      }
+    }
+  
+    mat-icon,
+    h4 {
+      color: white;
+      opacity: 0.64;
+      transition: opacity 80ms ease-in;
+    }
+  
+    h4 {
+      font-size: 14px;
+      text-overflow: clip;
+    }
+  }
+  
+  .sidenav-end {
+    background-color: #d7d6d7;
+    border-left: 1px solid #a3a6a7;
+  
+    mat-icon {
+      color: #333;
+      opacity: 0.64;
+      transition: opacity 80ms ease-in;
+    }
+  }
+  
+  mat-nav-list {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  
+  mat-sidenav-container {
+    flex: 1 1 auto;
+    height: 100vh;
+    position: relative;
+  
+    mat-sidenav {
+      background-color: rgb(248, 248, 248);
+      transition: width 80ms ease-in;
+      width: 320px;
+    }
+  
+    mat-sidenav.mat-sidenav-xl {
+      width: 400px;
+    }
+  
+    mat-sidenav.mat-sidenav-start {
+      margin-top: 64px;
+    }
+  
+    mat-sidenav-content {
+      overflow: hidden;
+    }
+  
+    mat-sidenav-content.data-table-visible {
+      app-data-table {
+        bottom: 0;
+      }
+    }
+  
+    app-data-table {
+      background-color: white;
+      bottom: -40vh;
+      height: 40vh;
+      position: absolute;
+      width: 100%;
+      transition: all 240ms ease-in;
+    }
+  
+    app-map-zoom {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+  
+    app-search {
+      position: absolute;
+      top: 16px;
+      left: 64px;
+    }
+  }
+  
+  /*Coordinate widget custom Style*/
+  
+  :host ::ng-deep .esri-ui-corner .esri-component {
+    box-shadow: rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
+  }
+  
+  :host ::ng-deep .esri-coordinate-conversion {
+    background-color: rgba(80, 79, 79, 0.62);
+    color: white;
+    border-radius: 10px;
+  }
+  
+  :host ::ng-deep .esri-coordinate-conversion__display:hover,
+  .esri-coordinate-conversion__select-row:hover {
+    background-color: #6c6c6c;
+  }
+  
+  :host ::ng-deep .esri-coordinate-conversion__conversions-view .esri-coordinate-conversion__row .esri-coordinate-conversion__tools .esri-widget--button {
+    border-radius: 5px 0px 0px 5px;
+    height: 20px;
+    width: 20px;
+  }
+  
+  :host
+    ::ng-deep
+    .esri-coordinate-conversion__conversions-view
+    .esri-coordinate-conversion__row
+    .esri-coordinate-conversion__tools
+    .esri-coordinate-conversion__mode-toggle {
+    border-radius: 0px 5px 5px 0px;
+    height: 20px;
+    width: 20px;
+  }
+  
+  :host ::ng-deep .esri-widget--button,
+  :host ::ng-deep .esri-zoom {
+    border-radius: 5px;
+  }
+  
+  :host
+    ::ng-deep
+    .esri-coordinate-conversion__conversions-view
+    .esri-coordinate-conversion__conversion-list
+    .esri-coordinate-conversion__row
+    .esri-coordinate-conversion__tools
+    .esri-widget--button,
+  :host ::ng-deep .esri-coordinate-conversion__select-row,
+  :host
+    ::ng-deep
+    .esri-coordinate-conversion__conversions-view
+    .esri-coordinate-conversion__conversion-list
+    .esri-coordinate-conversion__row
+    .esri-coordinate-conversion__tools
+    .esri-widget--button {
+    border-radius: 5px;
+    height: 20px;
+    width: 20px;
+  }
+  
+  :host ::ng-deep .esri-coordinate-conversion__select-primary,
+  :host ::ng-deep .esri-coordinate-conversion .esri-coordinate-conversion__input-coordinate[type="text"] {
+    border-radius: 5px;
+    height: 20px;
+  }
+  
+  :host ::ng-deep .esri-coordinate-conversion__button {
+    width: 65px;
+    min-height: 20px;
+    border-radius: 5px;
+    padding: 0px 5px;
+  }
+  
+  :host ::ng-deep .esri-coordinate-conversion__conversions-view {
+    margin: 0px;
+  }
+  
+  :host ::ng-deep .esri-coordinate-conversion__select-primary {
+    border-radius: 5px;
+  }
+
+
+  ::ng-deep .ol-control.bsm, ::ng-deep .ol-control.measure,::ng-deep .ol-control.area, ::ng-deep .ol-control.coordinates, ::ng-deep .ol-control.ol-print {
+    right: 5px;
+    padding: 0px;
+    pointer-events: auto;
+    border-radius: 25px;
+    background-color: #ffffff;
+    color: rgb(95, 95, 95);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+}
+
+::ng-deep .ol-control.bsm {
+  top: 5px;
+}
+
+::ng-deep .ol-control.measure {
+    top: 45px;
+}
+
+::ng-deep .ol-control.area {
+  top: 165px;
+}
+
+::ng-deep .ol-control.coordinates {
+  top: 85px;
+}
+
+::ng-deep .ol-ext-print-dialog .ol-ext-buttons {
+  display: none;
+}
+
+::ng-deep .ol-control.ol-print {
+  top: 125px;
+  left: unset;
+}
+
+::ng-deep #ol-street-view--pegman-button-div {
+  top: 92vh;
+  right: 10px;
+  z-index: 0;
+}
+
+.container-bsm, .container-measure, .container-print, .container-coordinates, .container-area  {
+margin: 10px;
+}
+
+ ::ng-deep #coordinates {
+  position: absolute;
+  top: 25em;
+  right: 0.5em;
+  left: 75%;
+  width: 260px;
+  height: 50px;
+  background: rgb(255 255 255 / 80%);
+  color: #333;
+  box-shadow: 0px 0px 5px #000;
+  padding: 0.5em;
+  transition: all 0.25s;
+ }
+
+::ng-deep .ol-overlay.bsm, ::ng-deep .ol-overlay.measure, ::ng-deep .ol-overlay.coordinates, ::ng-deep .ol-overlay.print, ::ng-deep .ol-overlay.area {
+  display: none;
+  position: absolute;
+  top: 1em;
+  right: 0.5em;
+  left: 75%;
+  width: 260px;
+  height: 275px;
+  background: rgb(255 255 255 / 80%);
+  color: #333;
+  box-shadow: 0px 0px 5px #000;
+  padding: 0.5em;
+  transition: all 0.25s;
+}
+
+::ng-deep .ol-overlay.measure {
+  height: 175px;
+}
+
+::ng-deep .ol-overlay.area {
+  height: 175px;
+}
+
+::ng-deep .ol-overlay.print, ::ng-deep .ol-overlay.coordinates {
+  height: 300px;
+}
+
+::ng-deep .ol-overlay.bsm{
+  left: 60%;
+  width: 420px;
+  height: 300px;
+}
+
+.container-bsm {
+margin: 10px;
+}
+
+:host ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 6px;
+  position: relative;
+  height: inherit;
+  justify-content: space-between;
+}
+
+
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  box-sizing: border-box;
+  height: 20px;
+  width: 30px;
+  background-color: white;
+  border-radius: 0.5em 0.5em 0 0;
+  box-shadow: 0 0.05em #b7b7b7;
+}
+
+.mainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mainContentContainer {
+  flex: 1;
+  background-color: #455864;
+}
+
+
+.tabContainer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.tabContent {
+  height: 100%;
+  background-color: white;
+}
+
+.attribute-table.tablehide{
+  display: none;
+}
+
+  

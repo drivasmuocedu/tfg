@@ -1,0 +1,100 @@
+<div
+  class="sidenav-start"
+  [ngClass]="{ 'toolbar-full': selStartWidget, 'toolbar-mini': isExpanded && !selStartWidget, 'toolbar-none': !isExpanded && !selStartWidget }"
+>
+  <mat-toolbar [@toolbarSlide]="!!selStartWidget ? 'expanded' : null">
+    <img class="toolbar-logo" src="assets/images/logo1.png" style="height: 56px" (click)="onLogoClick()" />
+    <div class="mat-toolbar-title" style="display: flex;
+    align-items: center;">
+      <p>Cacao viewer</p>
+    </div>
+  </mat-toolbar>
+
+  <div class="toolbar-logo toolbar-logo-small">
+    <img [class.expanded]="isExpanded" [src]="isExpanded ? 'assets/images/logo.png' : ''" (click)="onLogoClick()" />
+  </div>
+
+  <mat-nav-list [@sidenavSlide]="isExpanded ? 'expanded' : null">
+    <mat-list-item
+      *ngFor="let widget of startNavWidgets"
+      [disabled]="widget.name === 'publish'"
+      [matTooltip]="widget.title"
+      [ngClass]="{ active: selStartWidget === widget.name }"
+      matTooltipPosition="right"
+      (click)="toggleStartDrawer(widget.name)"
+    >
+      <mat-icon mat-list-icon class="material-icons-round">{{ widget.icon }}</mat-icon>
+      <h4 mat-line>{{ widget.title }}</h4>
+    </mat-list-item>
+    <div fxFlex="1 1 auto"></div>
+    <mat-list-item class="list-item-version" [class.visible]="isExpanded">
+      <h4 mat-line>v 1.0.0</h4>
+    </mat-list-item>
+    <mat-list-item (click)="isExpanded = !isExpanded">
+      <mat-icon mat-list-icon class="material-icons-round">{{ isExpanded ? "keyboard_double_arrow_left" : "keyboard_double_arrow_right" }}</mat-icon>
+      <h4 mat-line></h4>
+    </mat-list-item>
+  </mat-nav-list>
+</div>
+
+<mat-sidenav-container>
+  <mat-sidenav class="mat-sidenav-start" mode="side" position="start" role="navigation" [opened]="selStartWidget" (closed)="onDrawerClosed('start')">
+    <ng-template startNavHost></ng-template>
+  </mat-sidenav>
+  <mat-sidenav class="mat-sidenav-end mat-sidenav-xl" mode="side" position="end" role="navigation" [opened]="selEndWidget" (closed)="onDrawerClosed('end')">
+    <ng-template endNavHost></ng-template>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div [@mapState]="mapState">
+    <app-map></app-map>
+    <!--<div id="coordinates">Mover el puntero para ver coordenadas</div>-->
+  </div>
+    <div class="tabContainer" [@tabState]="state">
+      <div class="tab" (click)="onComeIn()">
+        <i *ngIf="tablehide" class="fas fa-angle-double-up"></i>
+        <i *ngIf="!tablehide" class="fas fa-angle-double-down"></i>
+      </div>
+      <div class="tabContent">
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="sidenav-end">
+  <mat-nav-list>
+    <mat-list-item
+      *ngFor="let widget of endNavWidgets"
+      [disabled]="widget.name === 'report'"
+      [matTooltip]="widget.title"
+      [ngClass]="{ active: selEndWidget === widget.name }"
+      matTooltipPosition="left"
+      (click)="toggleEndDrawer(widget.name)"
+    >
+      <mat-icon mat-list-icon class="material-icons-outlined">{{ widget.icon }}</mat-icon>
+    </mat-list-item>
+    <div fxFlex="1 1 auto"></div>
+ 
+  </mat-nav-list>
+</div>
+
+
+
+<div #divBaseLayers class="container-bsm">
+  <app-baselayers></app-baselayers>
+</div>
+
+
+
+<div #divMeasure class="container-measure">
+  <app-measure [measureOverlay]="measureOverlay"></app-measure>
+  </div>
+
+  <div #divArea class="container-area">
+    <app-area [areaOverlay]="areaOverlay"></app-area>
+    </div>
+
+<div #divCoordinates class="container-coordinates">
+  <app-coordinates [coordinatesOverlay]="coordinatesOverlay"></app-coordinates>
+</div>
+

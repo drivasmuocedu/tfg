@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./icomoon.css";
+
+html, body { height: 100%; overflow-y: hidden; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.snack-bar-success {
+    background-color: darkgreen;
+    color: white;
+  
+    .mat-simple-snackbar-action {
+      color: white;
+    }
+  }
+  
+  .snack-bar-error {
+    background-color: darkred;
+    color: white;
+  
+    .mat-simple-snackbar-action {
+      color: white;
+    }
+  }

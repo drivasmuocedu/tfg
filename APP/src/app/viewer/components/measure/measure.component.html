@@ -1,0 +1,23 @@
+<div class="container">
+    <h2 class="title">Mediciones</h2>
+    <!--
+<mat-form-field appearance="outline">
+    <mat-label for="measurement">Medición</mat-label>
+    <mat-select id="measurement" [ngModelOptions]="{standalone: true}" [(ngModel)]="measurement" (ngModelChange)="measurementChange($event)">
+        <mat-option value="length">Longitud</mat-option>
+        <mat-option value="area">Área</mat-option>
+    </mat-select>
+</mat-form-field>
+-->
+<div class="container-buttons">
+    <button mat-mini-fab aria-label="Crear mediciones" (click)="createMeasurement('length')">
+        <mat-icon svgIcon="line">line</mat-icon>
+    </button>
+    <button mat-mini-fab aria-label="Crear mediciones" (click)="createMeasurement('area')">
+        <mat-icon svgIcon="polygon">polygon</mat-icon>
+    </button>
+    <button mat-mini-fab  aria-label="Borrar mediciones" (click)="deleteMeasurement()">
+    <mat-icon>delete</mat-icon>
+    </button>
+</div>
+</div>

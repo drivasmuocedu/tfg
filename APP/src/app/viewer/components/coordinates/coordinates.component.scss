@@ -1,0 +1,43 @@
+.X, .Y {
+    display: flex;
+  }
+  
+  .coordinateHDMS {
+    width: 50px;
+    margin: 5px;
+  }
+
+  .buttons-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+    flex-direction: column;
+  }
+
+.coordinates-form {
+    height: 65%;
+}
+
+.container {
+    height: 200px;
+}
+
+.container-coord {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 120px;
+  padding: 0px 10px;
+}
+
+.coordinate-options {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0px 10px 0px;
+}
+
+.epsg-font {
+  font-size: 11px;
+  text-align: end;
+}

@@ -1,0 +1,41 @@
+.map {
+    width: 100%;
+    height: 100%;
+  }
+
+ :host ::ng-deep table.featureInfo {
+  overflow: auto;
+  /* position: relative; */
+  display: block;
+}
+
+:host ::ng-deep .properties-list .mat-list-item .mat-list-item-content {
+  justify-content: flex-start;
+}
+
+.property-field {  
+  margin-right: 10px;
+}
+
+.actions {
+  padding: 0px 10px;
+}
+
+.mat-card-actions-align-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+/*
+.card-popup{
+  background-color: #284c94;
+}
+
+.mat-paginator {
+  background-color: #284c94;
+  color: white;
+}
+*/
